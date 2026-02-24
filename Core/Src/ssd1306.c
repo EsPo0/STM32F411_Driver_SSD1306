@@ -11,7 +11,7 @@ void ssd1306_write_cmd(uint8_t cmd)
 
 void ssd1306_write_data(uint8_t *data, uint16_t size)
 {
-    uint8_t buf[size + 1];   // temporary for now
+    uint8_t buf[size + 1];
     buf[0] = 0x40;
 
     for (uint16_t i = 0; i < size; i++)
@@ -32,7 +32,7 @@ void ssd1306_update(uint8_t *framebuffer)
     ssd1306_write_cmd(0);      // start page
     ssd1306_write_cmd(7);      // end page
 
-    // Send framebuffer
+    // send framebuffer
     ssd1306_write_data(framebuffer, 1024);
 }
 
